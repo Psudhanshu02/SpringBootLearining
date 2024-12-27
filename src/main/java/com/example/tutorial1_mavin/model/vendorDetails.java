@@ -1,17 +1,22 @@
 package com.example.tutorial1_mavin.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(schema = "vendor_info")
+@Table(name= "vendor_info")
 public class vendorDetails {
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+//    @Column(nullable = false, length = 100)
     private String name;
+
+//    @Column(name = "phone_number", length = 15)
     private String phone_number;
+
+//    @Column(length = 255)
     private String address;
 
 
