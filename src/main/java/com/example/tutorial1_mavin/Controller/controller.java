@@ -3,7 +3,10 @@ package com.example.tutorial1_mavin.Controller;
 
 
 import com.example.tutorial1_mavin.model.vendorDetails;
+import com.example.tutorial1_mavin.response.responseHandler;
 import com.example.tutorial1_mavin.service.cloudVendorService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +26,8 @@ public class controller {
 
     //Get particular vendor
     @GetMapping("{vendorId}")
-    public  vendorDetails getVendorDetails(@PathVariable("vendorId") String vendorId){
-        return cloudVendorService.getVendor(vendorId);
+    public ResponseEntity<Object> getVendorDetails(@PathVariable("vendorId") String vendorId){
+        return responseHandler.responseBuilder("Vendor getails have been successfully fetched", HttpStatus.OK,cloudVendorService.getVendor(vendorId));
     }
 
     //Get All Vendor
