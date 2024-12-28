@@ -1,4 +1,5 @@
 package com.example.tutorial1_mavin.service.impl;
+import com.example.tutorial1_mavin.exception.vendorNotFoundException;
 import com.example.tutorial1_mavin.model.vendorDetails;
 import com.example.tutorial1_mavin.repository.cloudVendorRepository;
 import com.example.tutorial1_mavin.service.cloudVendorService;
@@ -28,12 +29,18 @@ public class cloudVendorServiceImp implements cloudVendorService{
 
     @Override
     public String deleteVendor(String vendorID) {
+        if(cloudVendorRepository.findById(vendorID).isEmpty()){
+            throw new vendorNotFoundException("vendor not found");
+        }
         cloudVendorRepository.deleteById(vendorID);
         return "Deleted";
     }
 
     @Override
     public vendorDetails getVendor(String vendorID) {
+        if(cloudVendorRepository.findById(vendorID).isEmpty()){
+            throw new vendorNotFoundException("vendor not found");
+        }
         return cloudVendorRepository.findById(vendorID).get();
     }
 

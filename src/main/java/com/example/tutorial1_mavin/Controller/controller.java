@@ -1,6 +1,7 @@
 package com.example.tutorial1_mavin.Controller;
 
 
+
 import com.example.tutorial1_mavin.model.vendorDetails;
 import com.example.tutorial1_mavin.service.cloudVendorService;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,6 @@ public class controller {
     public controller(com.example.tutorial1_mavin.service.cloudVendorService cloudVendorService) {
         this.cloudVendorService = cloudVendorService;
     }
-
 
     vendorDetails vendor;
 
