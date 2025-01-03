@@ -10,7 +10,5 @@ public interface cloudVendorService {
     public String deleteVendor(String vendorID);
     public vendorDetails getVendor(String vendorID);
     public List<vendorDetails> showAllVendor();
-
-
-
+//    List<vendorDetails> findByVendorName(String vendorName);
 }
